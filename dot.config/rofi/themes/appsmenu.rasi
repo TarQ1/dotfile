@@ -5,48 +5,60 @@ configuration {
 	window-format: "{c} {t}";
 }
 
+
 * {
-  transparency: "real";
-background-color: transparent;
- /* background-color: #2f343f; */
+  background-color: #0000006b;
+
   window-border: #676E7D;
   foreground: #eeeeee;
-  selected-normal-background: #5294e290;  
+
+  selected: #fffb1c;
+  not-selected: #702466ff;
+  input-bar-color : #1d90be;
+
+
   spacing: 0;
   text:       #dfdfdf;
   text-alt:   #b2b2b2;
-  font: "Roboto Nerd Font";
-  text-color: @text;
+  font: "Roboto Nerd Font 17";
+  text-color: #fffb1c;
 }
 
 window {
-        background-color: rgba(0, 0, 0, 60%);
-	width: 100%;
-	height: 100%;
+	width: 50%;
+	height: 60%;
 	fullscreen: false;
 	position: center;
 	anchor: center;
-	font: "mononoki Nerd Font 13";
+	font: "mononoki Nerd Font 12";
+	border-radius: 2%;
 }
 
 mainbox {
-	margin: 15% 25%;
-	children: [ inputbar, message, listview, wrapper-prompt ];
+	background-color: #ffffff00;
+	children: [ inputbar, message, listview, mode-switcher ];
 }
 
 inputbar {
-	margin: 0 0 3em 0;
-	font: "Iosevka 17";
+	background-color: @input-bar-color;
+
+	margin: 0 0 1em 0;
+	padding : 10px 30px 10px 30px;
+	font: "mononoki Nerd Font 13";
 	children: [ icon-search, entry, case-indicator];
 }
 
 icon-search {
+	background-color: #ffffff00;
+
 	expand: false;
-	size: 25;
+	size: 25px;
 	filename: "edit-find-symbolic";
 }
 
 entry {
+	background-color: #ffffff00;
+
 	expand: true;
 	font: inherit;
 	margin: 0 1em;
@@ -54,51 +66,70 @@ entry {
 
 case-indicator {
 	font: inherit;
+	background-color: #ffffff00;
 }
 
 message {
-	text-color: @foreground;
+	text-color: @text-color;
 }
 
 listview {
 	expand: true;
 	layout: vertical;
-	columns: 3;
-	lines: 4;
+	columns: 1;
+	lines: 5;
 	cycle: true;
-	spacing: 0.3em;
+	spacing: 6px;
 	scrollbar: false;
+	background-color: #ffffff00;
+	padding : 1em 1em 0em 1em;
+
 }
 
 /* Elements */
 element {
-	orientation: vertical;
-	padding: 1em;
+	orientation: horizontal;
+	padding: 1em 0.5em 1em 0.5em;
+	background-color: #ffffff00;
 }
 
 element-icon {
-	size: 64;
+	size: 32px;
+	background-color: #ffffff00;
 }
 
 element-text {
+	background-color: #ffffff00;
 	expand: true;
 	horizontal-align: 0.5;
+	font: "Roboto Nerd Font 25";
+
 }
 
 element selected {
-	background-color: @background;
-	border: 1px;
-	border-radius: 0.5em;
+	
+	text-color: @text-color;
+
+	border: 3px;
+	border-color :@selected ;
+	border-radius: 10px;
+
 }
 
 /* Element normal */
 element normal.normal, element alternate.normal {
-	background-color: @background;
-	text-color: @foreground;
+	
+	text-color: @text-color;
+	
+	border-color: @not-selected;
+
+	border-color :@not-selected ;
+	border-radius: 10px;
+	border: 3px;
+
 }
 element selected.normal {
-	border-color: @foreground;
-	text-color: @foreground;
+	text-color: @text-color;
 }
 
 /* Element active */
@@ -106,7 +137,6 @@ element normal.active, element alternate.active {
 	text-color: @secondary;
 }
 element selected.active {
-	border-color: @secondary;
 	text-color: @secondary;
 }
 
@@ -119,21 +149,24 @@ element selected.urgent {
 	text-color: @urgency;
 }
 
-wrapper-prompt {
-	expand: false;
-	orientation: horizontal;
-	children: [ dummy, mode-switcher ];
-}
-
-dummy {
-	expand: true;
-}
 
 mode-switcher {
+	background-color: #ffffff00;
+
+	text-color : @mode-color;
+
+	padding : 0 0 12px 0;
 	expand: false;
 }
 
 button {
+	background-color: #ffffff00;
+
+	border-radius: 2%;
+	border-color: @not-selected;
+	border : 2px ;
+
+
 	width: 6em;
 	padding: 0.2em 0;
 	margin: 0 0.5em;
@@ -141,7 +174,12 @@ button {
 
 button selected {
 	border: 0 0 1px 0;
-	border-color: @primary;
+
+
+	border-radius: 2%;
+	border : 2px ;
+
+	border-color: @selected;
 }
 
 prompt {
