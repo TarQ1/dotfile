@@ -23,7 +23,7 @@ shade8 = #F48FB1
 width = 100%
 height = 27
 ;offset-x = 1%
-offset-y = 1%
+;offset-y = 1%
 radius = 6.0
 
 background = ${colors.background}
@@ -46,10 +46,7 @@ font-1 = FontAwesome:pixelsize=13:style=Regular;3
 
 tray-position = left
 tray-background = ${colors.background}
-tray-offset-y = -11
-;wm-restack = i3
-;override-redirect = true
-
+tray-scale = 1
 
 modules-left = i3
 modules-center = powermenu
@@ -489,24 +486,24 @@ format-discharging = <animation-discharging> <label-discharging>
 
 format-full-background = ${colors.shade4}
 format-full-padding = 2
-format-full-prefix = " "
+format-full-prefix = " "
 format-full-prefix-foreground = ${colors.foreground}
 ;format-full-underline = ${self.format-charging-underline}
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
+ramp-capacity-0 = 0
+ramp-capacity-1 = 1
+ramp-capacity-2 = 2
 ramp-capacity-foreground = ${colors.foreground-alt}
 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
+animation-charging-0 = " "
+animation-charging-1 = " "
+animation-charging-2 = " "
 animation-charging-foreground = ${colors.foreground-alt}
 animation-charging-framerate = 750
 
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
+animation-discharging-0 = " "
+animation-discharging-1 = " "
+animation-discharging-2 = " "
 animation-discharging-foreground = ${colors.foreground-alt}
 animation-discharging-framerate = 750
 
@@ -539,7 +536,7 @@ expand-right = true
 format-padding = 2
 format-background = ${colors.background}
 label-separator = "  "
-label-open = 
+label-open = A
 label-open-foreground = ${colors.shade3}
 label-close = cancel
 label-close-foreground = ${colors.shade3}

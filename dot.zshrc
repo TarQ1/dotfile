@@ -4,8 +4,16 @@ export PATH=$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH="/home/sylvain/.oh-my-zsh"
+export PATH="$PATH:/home/sylvain/.dotnet/tools"
 
-# Set name of the theme to load --- if set to "random", it will
+export DOTNET_ROOT=$HOME/dotnet
+export PATH=$PATH:$HOME/dotnet
+
+
+
+ #Set name of the theme to load --- if set to "random", it will
+ #rt DOTNET_ROOT=$HOME/dotnet
+ #export PATH=$PATH:$HOME/dotnet
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes

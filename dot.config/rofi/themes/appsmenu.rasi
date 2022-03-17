@@ -7,7 +7,7 @@ configuration {
 
 
 * {
-  background-color: #0000006b;
+  background-color: #000000ff;
 
   window-border: #676E7D;
   foreground: #eeeeee;
